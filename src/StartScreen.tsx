@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, {useCallback, useEffect, useState} from 'react';
-import {View, Text, PermissionsAndroid, Platform, Alert} from 'react-native';
+import {View, Text, PermissionsAndroid, Platform, Alert, Button} from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import ReactNativeBiometrics, {BiometryTypes} from 'react-native-biometrics';
 const StartScreen = () => {
@@ -149,9 +149,9 @@ const StartScreen = () => {
     requestLocationPermission();
   }, []);
 
-  useEffect(() => {
-    getCurrentLocationAndCheckGeofence();
-  }, [currentLat, currentLng, currentAlt, getCurrentLocationAndCheckGeofence]);
+  // useEffect(() => {
+  //   getCurrentLocationAndCheckGeofence();
+  // }, [currentLat, currentLng, currentAlt, getCurrentLocationAndCheckGeofence]);
   return (
     <View style={{ flex: 1,}}>
       <View
@@ -167,6 +167,8 @@ const StartScreen = () => {
         <Text style={{fontSize: 16}}>Latitude: {currentLat}</Text>
         <Text style={{fontSize: 16}}>Longitude: {currentLng}</Text>
         <Text style={{fontSize: 16}}>Altitude: {currentAlt}</Text>
+        <Button title="Login" onPress={getCurrentLocationAndCheckGeofence} />
+        
       </View>
     </View>
   );
